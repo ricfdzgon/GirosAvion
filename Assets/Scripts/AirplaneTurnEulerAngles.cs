@@ -18,18 +18,37 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
 
 
         //Leemos los inputs
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             turnY = -1;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D))
         {
             turnY = 1;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            turnX = -1;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            turnX = 1;
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            turnZ = 1;
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            turnZ = -1;
         }
 
         //Aplicamos los giros
         Vector3 newEulerAngles = transform.eulerAngles;
         newEulerAngles.y += turnY * rotationSpeed * Time.deltaTime;
+        newEulerAngles.x += turnX * rotationSpeed * Time.deltaTime;
+        newEulerAngles.z += turnZ * rotationSpeed * Time.deltaTime;
+
         transform.eulerAngles = newEulerAngles;
 
         //Reseteamos el avión a su posición inicial
