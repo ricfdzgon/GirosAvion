@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AirplaneTurnEulerAngles : MonoBehaviour
+public class AirplaneTurnRotation : MonoBehaviour
 {
     Vector3 initialRotation;
     private float rotationSpeed = 90f;
@@ -10,9 +10,10 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
     {
         initialRotation = transform.eulerAngles;
     }
+
     void Update()
     {
-        if (MasterController.instance.cSharpRotation != CSharpRotation.EulerAngles)
+        if (MasterController.instance.cSharpRotation != CSharpRotation.Rotation)
         {
             return;
         }
@@ -51,15 +52,14 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
             turnZ = -1;
         }
 
-        //Aplicamos los giros
-        Vector3 newEulerAngles = transform.eulerAngles;
-        newEulerAngles.y += turnY * rotationSpeed * Time.deltaTime;
-        newEulerAngles.x += turnX * rotationSpeed * Time.deltaTime;
-        newEulerAngles.z += turnZ * rotationSpeed * Time.deltaTime;
+        //Aplicamos la rotación
+        Vector3 rotationEulerAngles = Vector3.zero;
+        rotationEulerAngles.y = turnY * rotationSpeed * Time.deltaTime;
+        rotationEulerAngles.x = turnX * rotationSpeed * Time.deltaTime;
+        rotationEulerAngles.z = turnZ * rotationSpeed * Time.deltaTime;
 
-        transform.eulerAngles = newEulerAngles;
-
-        Dashboard.instance.ShowEulerAngles(newEulerAngles);
+        transform.Rotate(rotationEulerAngles, Space.World);
+        Dashboard.instance.ShowEulerAngles(transform.eulerAngles);
 
         //Reseteamos el avión a su posición inicial
         if (Input.GetKeyDown(KeyCode.R))
@@ -68,3 +68,4 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
         }
     }
 }
+
