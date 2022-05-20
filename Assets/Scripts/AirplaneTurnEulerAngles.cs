@@ -26,6 +26,7 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
         {
             turnY = 1;
         }
+
         if (Input.GetKey(KeyCode.W))
         {
             turnX = -1;
@@ -34,6 +35,7 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
         {
             turnX = 1;
         }
+
         if (Input.GetKey(KeyCode.Q))
         {
             turnZ = 1;
@@ -50,6 +52,8 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
         newEulerAngles.z += turnZ * rotationSpeed * Time.deltaTime;
 
         transform.eulerAngles = newEulerAngles;
+
+        Dashboard.instance.ShowEulerAngles(newEulerAngles);
 
         //Reseteamos el avión a su posición inicial
         if (Input.GetKeyDown(KeyCode.R))

@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 54462216}
   - component: {fileID: 54462215}
   - component: {fileID: 54462214}
+  - component: {fileID: 54462213}
   m_Layer: 5
   m_Name: DashBoard
   m_TagString: Untagged
@@ -263,6 +264,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &54462213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54462212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e02025931d8efe946bde2809248e6623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eulerAngleXText: {fileID: 1893913781}
+  eulerAngleYText: {fileID: 1939482696}
+  eulerAngleZText: {fileID: 886959105}
 --- !u!114 &54462214
 MonoBehaviour:
   m_ObjectHideFlags: 0
