@@ -7,10 +7,12 @@ public class MasterController : MonoBehaviour
     public static MasterController instance;
     public CSharpRotation cSharpRotation { get; private set; }
 
+    public Space rotationReference { get; private set; }
     void Awake()
     {
         instance = this;
         cSharpRotation = CSharpRotation.Rotation;
+        rotationReference = Space.World;
     }
 
     void Update()
@@ -27,6 +29,18 @@ public class MasterController : MonoBehaviour
         else
         {
             cSharpRotation = CSharpRotation.EulerAngles;
+        }
+    }
+
+    public void ToggleRotationReference()
+    {
+        if (rotationReference == Space.Self)
+        {
+            rotationReference = Space.World;
+        }
+        else
+        {
+            rotationReference = Space.Self;
         }
     }
 }

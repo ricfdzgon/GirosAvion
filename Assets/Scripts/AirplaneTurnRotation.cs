@@ -58,7 +58,7 @@ public class AirplaneTurnRotation : MonoBehaviour
         rotationEulerAngles.x = turnX * rotationSpeed * Time.deltaTime;
         rotationEulerAngles.z = turnZ * rotationSpeed * Time.deltaTime;
 
-        transform.Rotate(rotationEulerAngles, Space.World);
+        transform.Rotate(rotationEulerAngles, MasterController.instance.rotationReference);
         Dashboard.instance.ShowEulerAngles(transform.eulerAngles);
 
         //Reseteamos el avión a su posición inicial

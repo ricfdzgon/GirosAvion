@@ -11,10 +11,13 @@ public class Dashboard : MonoBehaviour
     public TextMeshProUGUI eulerAngleYText;
     public TextMeshProUGUI eulerAngleZText;
     public TextMeshProUGUI valorCSharpText;
+    public TextMeshProUGUI valorRotationText;
+
 
     void Start()
     {
         ShowCSharpRotation();
+        ShowRotationReference();
     }
     void Awake()
     {
@@ -36,6 +39,11 @@ public class Dashboard : MonoBehaviour
     {
         valorCSharpText.text = MasterController.instance.cSharpRotation.ToString();
     }
+
+    public void ShowRotationReference()
+    {
+        valorRotationText.text = MasterController.instance.rotationReference.ToString();
+    }
     public void ShowEulerAngles(float eulerX, float eulerY, float eulerZ)
     {
         eulerAngleXText.text = formatAngle(eulerX);
@@ -52,5 +60,10 @@ public class Dashboard : MonoBehaviour
     {
         MasterController.instance.ToggleCSharpRotation();
         ShowCSharpRotation();
+    }
+    public void ToggleRotationButtonOnClick()
+    {
+        MasterController.instance.ToggleRotationReference();
+        ShowRotationReference();
     }
 }
