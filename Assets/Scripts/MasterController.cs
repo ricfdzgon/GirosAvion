@@ -13,10 +13,21 @@ public class MasterController : MonoBehaviour
         cSharpRotation = CSharpRotation.Rotation;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void ToggleCSharpRotation()
+    {
+        if (cSharpRotation == CSharpRotation.EulerAngles)
+        {
+            cSharpRotation = CSharpRotation.Rotation;
+        }
+        else
+        {
+            cSharpRotation = CSharpRotation.EulerAngles;
+        }
     }
 }
 

@@ -279,6 +279,7 @@ MonoBehaviour:
   eulerAngleXText: {fileID: 1893913781}
   eulerAngleYText: {fileID: 1939482696}
   eulerAngleZText: {fileID: 886959105}
+  valorCSharpText: {fileID: 1522174338}
 --- !u!114 &54462214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,7 +884,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 782248607}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 54462213}
+        m_TargetAssemblyTypeName: Dashboard, Assembly-CSharp
+        m_MethodName: ToggleCSharpButtonOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &782248607
 MonoBehaviour:
   m_ObjectHideFlags: 0
