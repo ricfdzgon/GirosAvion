@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AirplaneTurnEulerAngles : MonoBehaviour
+public class CameraTurnEulerAngles : MonoBehaviour
 {
     Vector3 initialRotation;
     private float rotationSpeed = 90f;
@@ -10,6 +10,7 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
     {
         initialRotation = transform.eulerAngles;
     }
+
     void Update()
     {
         if (MasterController.instance.cSharpRotation != CSharpRotation.EulerAngles)
@@ -17,38 +18,31 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
             return;
         }
 
-
         float turnX = 0;
         float turnY = 0;
-        float turnZ = 0;
 
-
-        //Leemos los inputs
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.J))
         {
             turnY = -1;
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.L))
         {
             turnY = 1;
         }
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            turnX = -1;
-        }
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.I))
         {
             turnX = 1;
         }
-
-        if (Input.GetKey(KeyCode.Q))
+        else if (Input.GetKey(KeyCode.K))
         {
-            turnZ = 1;
+            turnX = -1;
         }
-        else if (Input.GetKey(KeyCode.E))
+
+        //Reseteamos el avión a su posición inicial
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            turnZ = -1;
+            transform.eulerAngles = initialRotation;
         }
 
         //Aplicamos los giros
@@ -60,7 +54,6 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
 
         newEulerAngles.y += turnY * rotationSpeed * Time.deltaTime;
         newEulerAngles.x += turnX * rotationSpeed * Time.deltaTime;
-        newEulerAngles.z += turnZ * rotationSpeed * Time.deltaTime;
 
         if (MasterController.instance.rotationReference == Space.World)
         {
@@ -72,13 +65,5 @@ public class AirplaneTurnEulerAngles : MonoBehaviour
             transform.localEulerAngles = newEulerAngles;
         }
 
-
-        Dashboard.instance.ShowEulerAngles(newEulerAngles);
-
-        //Reseteamos el avión a su posición inicial
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            transform.eulerAngles = initialRotation;
-        }
     }
 }

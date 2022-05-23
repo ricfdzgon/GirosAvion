@@ -2215,6 +2215,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1865932795}
+  - component: {fileID: 1865932797}
+  - component: {fileID: 1865932796}
   m_Layer: 0
   m_Name: CameraMount
   m_TagString: Untagged
@@ -2237,6 +2239,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865932796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865932794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69557d6af71f05c478ddafa7e0e40ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1865932797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865932794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd1530d0080a744c89f53791a936203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1870692328
 GameObject:
   m_ObjectHideFlags: 0
