@@ -41,9 +41,11 @@ public class CameraTurnRotation : MonoBehaviour
 
         Vector3 rotation = Vector3.zero;
         rotation.x = turnX * rotationSpeed * Time.deltaTime;
-        rotation.y = turnY * rotationSpeed * Time.deltaTime;
+        transform.Rotate(rotation, Space.Self);
 
-        transform.Rotate(rotation, MasterController.instance.rotationReference);
+        rotation = Vector3.zero;
+        rotation.y = turnY * rotationSpeed * Time.deltaTime;
+        transform.Rotate(rotation, Space.World);
 
         //Reseteamos el avión a su posición inicial
         if (Input.GetKeyDown(KeyCode.R))
